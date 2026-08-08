@@ -48,14 +48,21 @@ export async function getGalleryData() {
     )
     if (gallery && gallery.length > 0) {
       return gallery
-        .map(g => ({
-          id: g._id,
-          caption: g.caption,
-          category: g.category,
-          src: g.image ? urlForImage(g.image)?.url() : null,
-          width: g.dims?.width,
-          height: g.dims?.height,
-        }))
+        .map(g => {
+          const rawW = g.dims?.width
+          const rawH = g.dims?.height
+          const crop = g.image?.crop
+          const width = crop && rawW ? rawW * (1 - crop.left - crop.right) : rawW
+          const height = crop && rawH ? rawH * (1 - crop.top - crop.bottom) : rawH
+          return {
+            id: g._id,
+            caption: g.caption,
+            category: g.category,
+            src: g.image ? urlForImage(g.image)?.url() : null,
+            width,
+            height,
+          }
+        })
         .filter(g => g.src)
     }
     return defaultData.gallery || []

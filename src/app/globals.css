@@ -40,7 +40,7 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible, input:focus-vis
   --font-ml-heading: 'Noto Serif Malayalam', serif;
   --ease:         cubic-bezier(0.4, 0, 0.2, 1);
   --dur:          0.25s;
-  --max-w:        1160px;
+  --max-w:        1320px;
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -111,7 +111,7 @@ a { color: inherit; }
   display: flex; align-items: center; justify-content: space-between; height: 100%;
 }
 .navbar-logo {
-  font-size: 1.05rem; font-weight: 700; letter-spacing: -0.02em;
+  font-family: var(--font-heading); font-size: 1.55rem; font-weight: 700; letter-spacing: -0.01em;
   color: var(--text); text-decoration: none; display: flex; align-items: center; gap: 8px;
   min-width: 0; overflow: hidden; white-space: nowrap; text-overflow: ellipsis;
 }
@@ -153,7 +153,7 @@ a { color: inherit; }
 }
 .hero-inner {
   max-width: 1600px; margin: 0 auto; padding: 80px 48px;
-  display: grid; grid-template-columns: 500px minmax(0, 1fr); gap: 100px; align-items: center;
+  display: grid; grid-template-columns: 380px minmax(0, 1fr); gap: 100px; align-items: center;
   position: relative;
 }
 .hero-title {
@@ -184,7 +184,7 @@ a { color: inherit; }
 @media (max-width: 900px) {
   .hero-inner { grid-template-columns: minmax(0, 1fr); gap: 48px; padding: 60px 28px; }
   .hero-title { font-size: 2.5rem; }
-  .hero-image-wrap { max-width: 340px; margin: 0 auto; }
+  .hero-image-wrap { max-width: 260px; margin: 0 auto; }
   .hero-image-badge { bottom: -12px; left: 0; }
 }
 
@@ -304,11 +304,16 @@ a { color: inherit; }
   .book-gr-info { padding-top: 0; }
 }
 
+/* ── STATIC PAGE HEADER (shared: Books, Gallery) ── */
+.page-main { padding: 84px 0 80px; min-height: calc(100vh - 300px); background: var(--bg); }
+.page-header { max-width: 640px; margin: 0 auto 28px; text-align: center; }
+@media (max-width: 768px) {
+  .page-main { padding-top: 76px; }
+}
+
 /* ── BOOKS LIST PAGE (bordered shop card grid) ── */
-.books-list-page { padding-top: 100px; min-height: calc(100vh - 300px); background: var(--bg); }
 @media (max-width: 768px) {
   .section { padding: 64px 0; }
-  .books-list-page { padding-top: 72px; }
   .container { padding: 0 20px; }
 }
 .books-list-toolbar {
@@ -558,7 +563,7 @@ a { color: inherit; }
 }
 
 /* ── CONTACT ── */
-.contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; max-width: 1000px; margin: 0 auto; }
+.contact-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 16px; max-width: 1000px; }
 .contact-tile {
   display: flex; flex-direction: column; align-items: flex-start; gap: 14px;
   padding: 28px 24px; text-decoration: none; color: var(--text); background: var(--bg-card);

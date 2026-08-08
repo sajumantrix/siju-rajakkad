@@ -7,29 +7,27 @@ export default function Gallery({ gallery = [] }) {
   const safeGallery = Array.isArray(gallery) ? gallery : [];
 
   return (
-    <section className="section section-alt" id="gallery">
-      <div className="container">
-        <div className="gallery-grid">
-          {safeGallery.map((item, i) => (
-            <div
-              key={item.id}
-              className={`gallery-cell animate-on-scroll stagger-${(i % 4) + 1}`}
-              style={item.width && item.height ? { aspectRatio: `${item.width} / ${item.height}` } : undefined}
-              onClick={() => setLightbox(item)}
-            >
-              <img
-                src={item.src}
-                alt={item.caption}
-                width={item.width || 800}
-                height={item.height || 600}
-                loading="lazy"
-              />
-              <div className="gallery-overlay">
-                <span>{item.caption}</span>
-              </div>
+    <div id="gallery">
+      <div className="gallery-grid">
+        {safeGallery.map((item, i) => (
+          <div
+            key={item.id}
+            className={`gallery-cell animate-on-scroll stagger-${(i % 4) + 1}`}
+            style={item.width && item.height ? { aspectRatio: `${item.width} / ${item.height}` } : undefined}
+            onClick={() => setLightbox(item)}
+          >
+            <img
+              src={item.src}
+              alt={item.caption}
+              width={item.width || 800}
+              height={item.height || 600}
+              loading="lazy"
+            />
+            <div className="gallery-overlay">
+              <span>{item.caption}</span>
             </div>
-          ))}
-        </div>
+          </div>
+        ))}
       </div>
 
       <div className={`lightbox${lightbox ? " open" : ""}`} onClick={() => setLightbox(null)}>
@@ -43,6 +41,6 @@ export default function Gallery({ gallery = [] }) {
           </>
         )}
       </div>
-    </section>
+    </div>
   );
 }
