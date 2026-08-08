@@ -296,7 +296,7 @@ a { color: inherit; }
 .book-gr-price-label { font-size: 0.68rem; color: var(--text-3); text-transform: uppercase; letter-spacing: 0.08em; font-weight: 700; margin-bottom: 4px; }
 .book-gr-price { font-size: 1.6rem; font-weight: 800; color: var(--accent); letter-spacing: -0.02em; line-height: 1; }
 
-.book-gr-desc { font-size: 1rem; color: var(--text-2); line-height: 1.8; margin-bottom: 28px; max-width: 58ch; }
+.book-gr-desc { font-size: 1rem; color: var(--text-2); line-height: 1.8; margin-bottom: 28px; max-width: 58ch; white-space: pre-line; }
 
 .book-gr-meta { display: flex; flex-direction: column; gap: 9px; margin-bottom: 32px; font-size: 0.85rem; }
 .book-gr-meta-row { display: flex; gap: 16px; }
