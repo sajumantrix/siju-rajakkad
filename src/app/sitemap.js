@@ -1,5 +1,7 @@
 import { getBooksData } from "@/lib/sanityQueries";
 
+export const revalidate = 60;
+
 const BASE_URL = "https://sijurajakkad.com";
 
 export default async function sitemap() {

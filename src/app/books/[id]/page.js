@@ -62,6 +62,7 @@ export default async function BookDetailPage({ params }) {
   const enquiryURL = buildWhatsAppEnquiryURL(author.whatsappNumber, book.titleML);
   const coverUrl = typeof book.cover === "string" ? book.cover : (book.cover ? urlForImage(book.cover)?.url() : "/images/placeholder.jpg");
   const extraImageUrls = (book.images || [])
+    .filter((img) => img?.asset)
     .map((img) => urlForImage(img)?.url())
     .filter(Boolean);
   const galleryImages = [coverUrl, ...extraImageUrls];
