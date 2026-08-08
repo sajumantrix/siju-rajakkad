@@ -26,18 +26,12 @@ export default function Hero({ author }) {
             <Link href="/books" className="btn btn-primary">
               Explore Books
             </Link>
-            <a href={waURL} target="_blank" rel="noopener noreferrer" className="btn btn-ghost">
+            <a href={waURL} target="_blank" rel="noopener noreferrer" className="btn btn-wa-light">
               <IconWhatsapp size={16} />
               WhatsApp
             </a>
           </div>
         </div>
-      </div>
-      <div className="scroll-cue">
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-          <polyline points="6 9 12 15 18 9"/>
-        </svg>
-        Scroll
       </div>
     </section>
   );

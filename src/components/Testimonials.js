@@ -78,10 +78,8 @@ export default function Testimonials({ testimonials = [] }) {
             ))}
           </CarouselContent>
           
-          <div className="hidden md:block">
-            <CarouselPrevious className="absolute -left-12 top-1/2 -translate-y-1/2" />
-            <CarouselNext className="absolute -right-12 top-1/2 -translate-y-1/2" />
-          </div>
+          <CarouselPrevious className="absolute left-1 md:-left-12 top-1/2 -translate-y-1/2" />
+          <CarouselNext className="absolute right-1 md:-right-12 top-1/2 -translate-y-1/2" />
 
           <CarouselDots />
         </Carousel>

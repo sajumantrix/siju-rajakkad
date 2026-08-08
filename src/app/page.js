@@ -1,7 +1,6 @@
 import Link from "next/link";
 import { getAuthorData, getBooksData } from "@/lib/sanityQueries";
 import { defaultData } from "@/lib/data";
-import ScrollInit from "@/components/ScrollInit";
 import Navbar from "@/components/Navbar";
 import Hero from "@/components/Hero";
 import About from "@/components/About";
@@ -25,7 +24,6 @@ export default async function Home() {
 
   return (
     <>
-      <ScrollInit />
       <Navbar />
       <main>
         <Hero author={data.author} />

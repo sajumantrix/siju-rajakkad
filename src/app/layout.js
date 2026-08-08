@@ -1,5 +1,6 @@
 import "./globals.css";
 import ScrollToTop from "@/components/ScrollToTop";
+import ScrollInit from "@/components/ScrollInit";
 
 export const metadata = {
   title: "Siju Rajakkad - Malayalam Author & Storyteller",
@@ -40,6 +41,7 @@ export default function RootLayout({ children }) {
       </head>
       <body>
         <ScrollToTop />
+        <ScrollInit />
         {children}
       </body>
     </html>
