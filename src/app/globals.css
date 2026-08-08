@@ -44,7 +44,8 @@ a:focus-visible, button:focus-visible, [tabindex]:focus-visible, input:focus-vis
 }
 
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; scroll-padding-top: 76px; }
+html { scroll-behavior: smooth; scroll-padding-top: 76px; overflow-x: hidden; }
+p, h1, h2, h3, h4, h5, h6 { overflow-wrap: anywhere; word-break: break-word; }
 body {
   font-family: var(--font); 
   background-color: var(--bg); 
@@ -91,6 +92,9 @@ a { color: inherit; }
 .section-sub { color: var(--text-2); font-size: 0.95rem; max-width: 520px; }
 .section-header { margin-bottom: 52px; }
 .section-title-nowrap { font-size: clamp(1.7rem, 2.6vw, 2.6rem); white-space: nowrap; }
+@media (max-width: 860px) {
+  .section-title-nowrap { white-space: normal; }
+}
 @media (max-width: 560px) {
   .section-title-nowrap { font-size: clamp(1.3rem, 6vw, 1.7rem); }
 }
@@ -198,7 +202,7 @@ a { color: inherit; }
 .btn-sm { padding: 8px 16px; font-size: 0.75rem; }
 
 /* ── ABOUT ── */
-.about-grid { display: grid; grid-template-columns: 360px 1fr; gap: 72px; align-items: start; }
+.about-grid { display: grid; grid-template-columns: 360px minmax(0, 1fr); gap: 72px; align-items: start; }
 .about-img-wrap { position: sticky; top: 100px; }
 .about-img {
   width: 100%; aspect-ratio: 3/4; object-fit: cover;
@@ -211,6 +215,7 @@ a { color: inherit; }
 .bio-intro {
   font-size: 1.1rem; color: var(--text-2); line-height: 1.8;
   margin-bottom: 32px; padding-bottom: 32px; border-bottom: 1px solid var(--border-light);
+  overflow-wrap: anywhere; word-break: break-word;
 }
 .bio-section { margin-bottom: 28px; padding-bottom: 28px; border-bottom: 1px solid var(--border-light); }
 .bio-section:last-child { border-bottom: none; margin-bottom: 0; padding-bottom: 0; }
@@ -218,10 +223,10 @@ a { color: inherit; }
   font-size: 0.7rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
   color: var(--accent); margin-bottom: 8px;
 }
-.bio-section-text { font-size: 0.95rem; color: var(--text-2); line-height: 1.8; }
+.bio-section-text { font-size: 0.95rem; color: var(--text-2); line-height: 1.8; overflow-wrap: anywhere; word-break: break-word; }
 
 @media (max-width: 860px) {
-  .about-grid { grid-template-columns: 1fr; gap: 40px; }
+  .about-grid { grid-template-columns: minmax(0, 1fr); gap: 40px; }
   .about-img-wrap { position: static; max-width: 300px; margin: 0 auto; }
 }
 
