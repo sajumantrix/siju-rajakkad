@@ -34,7 +34,6 @@ export default async function Home() {
         {/* Books Teaser Banner */}
         <section className="section section-alt" id="books-teaser">
           <div className="container" style={{ textAlign: "center" }}>
-            <div className="section-label" style={{ justifyContent: "center" }}>Published Works</div>
             <h2 className="section-title">Explore the Books</h2>
             <p className="section-sub" style={{ margin: "0 auto 32px" }}>
               Discover novels, short story collections, and more by {data.author.name}.

@@ -17,7 +17,6 @@ export default async function BooksListPage() {
       <main className="books-list-page section">
         <div className="container">
           <div className="section-header text-center" style={{ maxWidth: 640, margin: "0 auto 40px" }}>
-            <div className="section-label" style={{ justifyContent: "center" }}>Published Works</div>
             <h1 className="section-title">All Books</h1>
             <p className="section-sub" style={{ margin: "0 auto" }}>
               Explore the complete collection of literary works by {data.author.name}

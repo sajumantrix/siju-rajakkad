@@ -20,19 +20,5 @@ export const galleryType = defineType({
       type: 'string',
       description: 'A short caption describing this photo (e.g. Book launch of ...).',
     }),
-    defineField({
-      name: 'category',
-      title: 'Category',
-      type: 'string',
-      options: {
-        list: [
-          { title: 'Book Launch', value: 'Book Launch' },
-          { title: 'Literary Festivals', value: 'Literary Festivals' },
-          { title: 'Speaking Events', value: 'Speaking Events' },
-          { title: 'Newspaper Features', value: 'Newspaper Features' },
-        ],
-      },
-      description: 'Used to group and filter photos in the gallery tabs.',
-    }),
   ],
 })

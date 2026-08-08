@@ -4,10 +4,7 @@ import { IconX } from "./Icons";
 
 export default function Gallery({ gallery = [] }) {
   const [lightbox, setLightbox] = useState(null);
-  const [filter, setFilter] = useState("All");
   const safeGallery = Array.isArray(gallery) ? gallery : [];
-  const categories = ["All", ...new Set(safeGallery.map((g) => g.category).filter(Boolean))];
-  const filtered = filter === "All" ? safeGallery : safeGallery.filter((g) => g.category === filter);
 
   return (
     <section className="section section-alt" id="gallery">
@@ -18,26 +15,8 @@ export default function Gallery({ gallery = [] }) {
           <p className="section-sub mx-auto">From book launches, festivals, and literary events</p>
         </div>
         
-        {categories.length > 1 && (
-          <div className="flex flex-wrap justify-center gap-3 mb-10">
-            {categories.map((cat) => (
-              <button
-                key={cat}
-                onClick={() => setFilter(cat)}
-                className={`px-5 py-2 text-sm font-semibold transition-all duration-300 rounded-full border ${
-                  filter === cat
-                    ? "bg-[#111111] text-white border-[#111111]"
-                    : "bg-white text-gray-600 border-gray-200 hover:border-gray-900 hover:text-gray-900"
-                }`}
-              >
-                {cat}
-              </button>
-            ))}
-          </div>
-        )}
-
         <div className="gallery-grid">
-          {filtered.map((item, i) => (
+          {safeGallery.map((item, i) => (
             <div
               key={item.id}
               className={`gallery-cell animate-on-scroll stagger-${(i % 4) + 1}`}

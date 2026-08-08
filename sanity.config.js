@@ -12,11 +12,14 @@ const myStructure = (S) =>
     .title('My Portfolio Manager')
     .items([
       S.listItem()
-        .title('👨‍🏫 Edit Author Profile')
+        .title('Edit Author Profile')
         .child(S.documentTypeList('author').title('Author Profiles')),
       S.listItem()
-        .title('📚 Manage Books')
+        .title('Manage Books')
         .child(S.documentTypeList('book').title('Books')),
+      S.listItem()
+        .title('Manage Gallery')
+        .child(S.documentTypeList('gallery').title('Gallery Photos')),
     ])
 
 export default defineConfig({

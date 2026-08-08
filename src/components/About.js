@@ -11,8 +11,8 @@ export default function About({ bio, author }) {
           </div>
           <div className="about-content">
             <div className="section-label">About the Author</div>
-            <h2 className="section-title">The Story Behind<br />the Storyteller</h2>
-            <p className="bio-intro animate-on-scroll">{bio.intro}</p>
+            <h2 className="section-title section-title-nowrap">The Story Behind the Storyteller</h2>
+            <p className="bio-intro animate-on-scroll font-ml text-lg leading-relaxed">{bio.intro}</p>
             {bio?.sections?.map((section, i) => (
               <div key={i} className={`bio-section animate-on-scroll stagger-${(i % 4) + 1}`}>
                 <div className="bio-section-title">{section.title}</div>

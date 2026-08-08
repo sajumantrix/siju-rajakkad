@@ -30,6 +30,12 @@ export const authorType = defineType({
       description: 'Your favorite quote or philosophy that will appear on the homepage.',
     }),
     defineField({
+      name: 'quoteEN',
+      title: 'Quote (English)',
+      type: 'text',
+      description: 'English translation of the quote above, shown alongside it on the homepage.',
+    }),
+    defineField({
       name: 'whatsappNumber',
       title: 'WhatsApp Number',
       type: 'string',

@@ -37,12 +37,12 @@ function CarouselDots() {
 
 export default function Testimonials({ testimonials = [] }) {
   return (
-    <section className="py-24 bg-white" id="testimonials">
-      <div className="container mx-auto px-6 max-w-[1200px]">
-        <div className="mb-12">
-          <div className="text-sm font-bold tracking-widest uppercase text-gray-500 mb-2">Reviews</div>
-          <h2 className="text-3xl md:text-5xl font-extrabold tracking-tight text-gray-900 mb-4">What People Say</h2>
-          <p className="text-lg text-gray-600">Voices from readers, critics, and fellow writers</p>
+    <section className="section" id="testimonials">
+      <div className="container">
+        <div className="section-header text-center" style={{ marginBottom: "48px" }}>
+          <div className="section-label justify-center">Reviews</div>
+          <h2 className="section-title">What People Say</h2>
+          <p className="section-sub mx-auto">Voices from readers, critics, and fellow writers</p>
         </div>
 
         <Carousel

@@ -39,7 +39,7 @@ export default async function BookDetailPage({ params }) {
   return (
     <>
       <Navbar />
-      <main className="book-gr-wrap" style={{ paddingTop: "108px" }}>
+      <main className="book-gr-wrap pt-[80px] md:pt-[108px]">
         <div className="container">
           <nav className="book-gr-crumb">
             <Link href="/">Home</Link>

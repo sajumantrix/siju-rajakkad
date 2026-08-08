@@ -14,35 +14,8 @@ export const defaultData = {
   },
 
   bio: {
-    intro:
-      "Siju Rajakkad is a Malayalam writer from Idukki. He writes about the people and places of Kerala, drawing heavily from his life in the hills and cardamom plantations.",
-    sections: [
-      {
-        title: "Early Life",
-        content:
-          "Growing up in Rajakkad, a small village in Idukki, Siju was surrounded by rolling hills and the daily routines of plantation workers. His childhood was filled with local stories and memories of grandparents sharing old myths and local history, which later shaped his own writing.",
-      },
-      {
-        title: "The Land of Rajakkad",
-        content:
-          "The Western Ghats is the heart of Siju's work. His village, known for its spice gardens, deeply influenced how he sees the world. Most of his characters are inspired by the people he grew up with, including farmers, tea pluckers, and the ordinary people of the mountains.",
-      },
-      {
-        title: "Writing Journey",
-        content:
-          "Siju started writing short stories in college and published them in local magazines. His simple but sharp writing style quickly found an audience. Today, his work stays true to traditional Malayalam literature while exploring modern realities.",
-      },
-      {
-        title: "Literary Inspirations",
-        content:
-          "His writing is influenced by classic Malayalam authors like Vaikom Muhammad Basheer and O.V. Vijayan, as well as global writers like Gabriel García Márquez. You can see these influences in his stories, which often mix local village life with unusual, magical elements.",
-      },
-      {
-        title: "Philosophy",
-        content:
-          "For Siju, writing is a way to document life. He tries to write stories that matter to everyday people, focusing on themes like migration, love, and the struggles of village life. His goal is to write honestly about the things people often overlook.",
-      },
-    ],
+    intro: "രാജാക്കാട് പഞ്ചായത്തിലെ എൻ.ആർ. സിറ്റിയിൽ, തെനംകുഴിയിൽ ചാക്കോയുടെയും ആലീസിന്റെയും നാലുമക്കളിൽ രണ്ടാമനായി ജനനം. എൻ.ആർ.സിറ്റി എസ്.എൻ. വി. ഹയർസെക്കന്ററി സ്കൂളിൽ എസ്.എസ്.എൽ. സി. വരെ പഠനം. 1994-ൽ കോട്ടയം എസ്.എച്ച്. മൗണ്ട് മോണസ്റ്ററിയിൽ വൈദിക പഠനത്തിനു ചേർന്നു. ബാംഗ്ലൂർ ധർമ്മാരാം വിദ്യാക്ഷേത്രത്തിൽ തത്വശാസ്ത്രം, ചങ്ങനാശ്ശേരി എസ്.ബി. കോളേജിൽ ഡിഗ്രി, എം.ജി. യൂണിവേഴ്സിറ്റിയിൽ എം.എ, നെടുങ്കണ്ടം യു.സി.റ്റി.യിൽ ബി.എഡ്. എന്നീ കോഴ്സുകൾ ചെയ്തു. കപ്യാർ, തട്ടുകടത്തൊഴിലാളി, സ്കൂൾ-കോളേജ് അദ്ധ്യാപകൻ എന്നീ നിലകളിലും പ്രവർത്തിച്ചു. വിദ്യാർത്ഥി രാഷ്ട്രീയത്തിൽ സജീവമായി നിലകൊണ്ടു. സാഹിത്യ-സാംസ്കാരിക പ്രവർത്തനങ്ങളിൽ പങ്കാളി. ചുരുക്കം ചില ആനുകാലികങ്ങളിൽ എഴുതിയിട്ടുണ്ട്. 'നോവിന്റെ നന്മകൾ', 'ചെകുത്താൻ കുരിശു വരയ്ക്കുന്നു', കാശ്മീരി കവിതകൾ -വിവർത്തനവും,പതൃത്വസർട്ടിഫിക്കറ്റ്,കോസ്മോയിസം, താക്കീത്, എന്നിവ കൃതികൾ. പൊൻകുന്നം വർക്കി നവലോകം ചെറുകഥ പുരസ്കാരം 2015 ൽ നേടിയിട്ടുണ്ട് വിലാസം : തെനംകുഴിയിൽ, എൻ.ആർ.സിറ്റി. പി.ഒ., ഇടുക്കിജില്ല- 685566, ഫോൺ : 9605681534.",
+    sections: [],
   },
 
   awards: [

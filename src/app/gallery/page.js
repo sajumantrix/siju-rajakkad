@@ -15,7 +15,7 @@ export default async function GalleryPage() {
   return (
     <>
       <Navbar />
-      <main className="section" style={{ paddingTop: "120px", minHeight: "80vh", background: "var(--bg-soft)" }}>
+      <main className="section pt-24 md:pt-[120px] min-h-[80vh] bg-[#f8f7f5]">
         <div className="container">
           <div className="section-header" style={{ marginBottom: "60px", textAlign: "center" }}>
             <h1 className="section-title">Photo Gallery</h1>
