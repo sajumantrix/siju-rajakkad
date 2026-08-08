@@ -2,6 +2,7 @@
 import Link from "next/link";
 import { IconWhatsapp, IconBook } from "./Icons";
 import { buildWhatsAppContactURL } from "@/lib/whatsapp";
+import WhatsAppLink from "./WhatsAppLink";
 
 export default function Hero({ author }) {
   const waURL = buildWhatsAppContactURL(author.whatsappNumber);
@@ -26,10 +27,10 @@ export default function Hero({ author }) {
             <Link href="/books" className="btn btn-primary">
               Explore Books
             </Link>
-            <a href={waURL} target="_blank" rel="noopener noreferrer" className="btn btn-wa-light">
+            <WhatsAppLink href={waURL} className="btn btn-wa-light">
               <IconWhatsapp size={16} />
               WhatsApp
-            </a>
+            </WhatsAppLink>
           </div>
         </div>
       </div>

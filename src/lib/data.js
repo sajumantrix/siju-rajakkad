@@ -4,7 +4,7 @@ export const defaultData = {
     nameML: "സിജു രാജാക്കാട്",
     tagline: "Malayalam Author & Storyteller",
     portrait: "/images/siju_rajakkad.jpg",
-    whatsappNumber: "919605681534",
+    whatsappNumber: "917034303071",
     email: "sijurajakkad@gmail.com",
     phone: "+91 96056 81534",
     facebook: "https://facebook.com/sijurajakkad",

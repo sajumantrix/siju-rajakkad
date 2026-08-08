@@ -1,6 +1,7 @@
 "use client";
 import { IconPhone, IconEmail, IconWhatsapp, IconFacebook, IconInstagram } from "./Icons";
 import { buildWhatsAppContactURL } from "@/lib/whatsapp";
+import WhatsAppLink from "./WhatsAppLink";
 
 export default function Contact({ author }) {
   const waURL = buildWhatsAppContactURL(author.whatsappNumber);
@@ -24,17 +25,24 @@ export default function Contact({ author }) {
         <div className="contact-grid">
           {contacts.map((c, i) => {
             const Icon = c.icon;
-            return (
-              <a
-                key={i}
-                href={c.href}
-                target="_blank"
-                rel="noopener noreferrer"
-                className={`contact-tile animate-on-scroll stagger-${(i % 4) + 1}${c.isWA ? " wa-tile" : ""}`}
-              >
+            const className = `contact-tile animate-on-scroll stagger-${(i % 4) + 1}${c.isWA ? " wa-tile" : ""}`;
+            const inner = (
+              <>
                 <div className="contact-tile-icon"><Icon size={18} /></div>
                 <div className="contact-tile-label">{c.label}</div>
                 <div className="contact-tile-value">{c.value}</div>
+              </>
+            );
+            if (c.isWA) {
+              return (
+                <WhatsAppLink key={i} href={c.href} className={className}>
+                  {inner}
+                </WhatsAppLink>
+              );
+            }
+            return (
+              <a key={i} href={c.href} target="_blank" rel="noopener noreferrer" className={className}>
+                {inner}
               </a>
             );
           })}

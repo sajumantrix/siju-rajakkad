@@ -5,6 +5,7 @@ import { urlForImage } from "@/sanity/image";
 import { IconWhatsapp, IconChevronRight } from "@/components/Icons";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import WhatsAppLink from "@/components/WhatsAppLink";
 
 export default async function BookDetailPage({ params }) {
   const { id } = await params;
@@ -85,15 +86,15 @@ export default async function BookDetailPage({ params }) {
 
               <div className="book-gr-actions">
                 {outOfStock ? (
-                  <a href={enquiryURL} target="_blank" rel="noopener noreferrer" className="btn btn-wa">
+                  <WhatsAppLink href={enquiryURL} className="btn btn-wa">
                     <IconWhatsapp size={16} />
                     Enquire on WhatsApp
-                  </a>
+                  </WhatsAppLink>
                 ) : (
-                  <a href={waURL} target="_blank" rel="noopener noreferrer" className="btn btn-wa">
+                  <WhatsAppLink href={waURL} className="btn btn-wa">
                     <IconWhatsapp size={16} />
                     Buy on WhatsApp
-                  </a>
+                  </WhatsAppLink>
                 )}
               </div>
             </div>
