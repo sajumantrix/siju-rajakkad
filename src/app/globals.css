@@ -113,7 +113,9 @@ a { color: inherit; }
 .navbar-logo {
   font-size: 1.05rem; font-weight: 700; letter-spacing: -0.02em;
   color: var(--text); text-decoration: none; display: flex; align-items: center; gap: 8px;
+  min-width: 0; overflow: hidden; white-space: nowrap; text-overflow: ellipsis;
 }
+.mobile-toggle { flex-shrink: 0; }
 .navbar-logo-dot { width: 6px; height: 6px; background: var(--accent); border-radius: 50%; }
 .nav-links { display: flex; gap: 28px; list-style: none; }
 .nav-links a {
@@ -151,7 +153,7 @@ a { color: inherit; }
 }
 .hero-inner {
   max-width: 1600px; margin: 0 auto; padding: 80px 48px;
-  display: grid; grid-template-columns: 500px 1fr; gap: 100px; align-items: center;
+  display: grid; grid-template-columns: 500px minmax(0, 1fr); gap: 100px; align-items: center;
   position: relative;
 }
 .hero-title {
@@ -180,7 +182,7 @@ a { color: inherit; }
 }
 
 @media (max-width: 900px) {
-  .hero-inner { grid-template-columns: 1fr; gap: 48px; padding: 60px 28px; }
+  .hero-inner { grid-template-columns: minmax(0, 1fr); gap: 48px; padding: 60px 28px; }
   .hero-title { font-size: 2.5rem; }
   .hero-image-wrap { max-width: 340px; margin: 0 auto; }
   .hero-image-badge { bottom: -12px; left: 0; }
@@ -316,7 +318,7 @@ a { color: inherit; }
 .books-list-count { font-size: 0.8rem; color: var(--text-3); font-weight: 500; }
 
 .books-list-container {
-  display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px;
+  display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 24px;
   max-width: 1200px; margin: 0 auto;
 }
 .book-list-item {
@@ -342,7 +344,7 @@ a { color: inherit; }
 
 .book-list-body { padding: 16px 14px; display: flex; flex-direction: column; flex-grow: 1; }
 .book-list-header { margin-bottom: 4px; }
-.book-list-title-ml { font-family: var(--font-ml); font-size: 1rem; font-weight: 700; color: var(--text); text-decoration: none; display: block; line-height: 1.35; }
+.book-list-title-ml { font-family: var(--font-ml); font-size: 1rem; font-weight: 700; color: var(--text); text-decoration: none; display: block; line-height: 1.35; overflow-wrap: anywhere; word-break: break-word; }
 .book-list-title-ml:hover { color: var(--accent); }
 .book-list-title-en { font-size: 0.78rem; color: var(--text-3); font-weight: 500; }
 .book-list-author { font-size: 0.78rem; color: var(--text-2); margin: 6px 0; }
@@ -366,10 +368,10 @@ a { color: inherit; }
 .book-list-cta-icon:hover { background: var(--wa); }
 
 @media (max-width: 980px) {
-  .books-list-container { grid-template-columns: repeat(3, 1fr); gap: 1px 20px; }
+  .books-list-container { grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1px 20px; }
 }
 @media (max-width: 640px) {
-  .books-list-container { grid-template-columns: repeat(2, 1fr); gap: 1px 14px; }
+  .books-list-container { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1px 14px; }
   .books-list-toolbar { flex-direction: column; align-items: flex-start; gap: 6px; }
   .book-list-cta { font-size: 0.6rem; padding: 11px 4px; letter-spacing: 0; white-space: nowrap; }
   .book-list-cta-icon { width: 36px; }
@@ -528,7 +530,7 @@ a { color: inherit; }
 /* ── MEDIA ── */
 .media-list { display: flex; flex-direction: column; gap: 1px; border: 1px solid var(--border); border-radius: var(--r-xl); overflow: hidden; }
 .media-row {
-  display: grid; grid-template-columns: 160px 1fr; background: var(--bg-card);
+  display: grid; grid-template-columns: 160px minmax(0, 1fr); background: var(--bg-card);
   transition: background var(--dur) var(--ease);
 }
 .media-row:hover { background: var(--bg-soft); }
@@ -541,11 +543,11 @@ a { color: inherit; }
 .media-pub-name { font-size: 0.8rem; font-weight: 700; color: var(--accent); letter-spacing: 0.04em; margin-bottom: 4px; }
 .media-pub-date { font-size: 0.75rem; color: var(--text-3); }
 .media-content-col { padding: 24px 28px; }
-.media-article-title { font-size: 0.95rem; font-weight: 700; margin-bottom: 6px; letter-spacing: -0.01em; }
+.media-article-title { font-size: 0.95rem; font-weight: 700; margin-bottom: 6px; letter-spacing: -0.01em; overflow-wrap: anywhere; word-break: break-word; }
 .media-excerpt { font-size: 0.85rem; color: var(--text-2); line-height: 1.65; }
 
 @media (max-width: 600px) {
-  .media-row { grid-template-columns: 1fr; }
+  .media-row { grid-template-columns: minmax(0, 1fr); }
   .media-pub-col { border-right: none; border-bottom: 1px solid var(--border-light); padding: 16px 20px; }
   .media-content-col { padding: 16px 20px; }
 }
