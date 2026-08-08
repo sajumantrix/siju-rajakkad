@@ -3,7 +3,6 @@ import { getAuthorData, getBooksData } from "@/lib/sanityQueries";
 import { buildWhatsAppAskURL } from "@/lib/whatsapp";
 import { urlForImage } from "@/sanity/image";
 import { IconWhatsapp } from "@/components/Icons";
-import WhatsAppLink from "@/components/WhatsAppLink";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
@@ -60,14 +59,16 @@ export default async function BooksListPage() {
                           <Link href={`/books/${book.id}`} className="book-list-cta">
                             View Details
                           </Link>
-                          <WhatsAppLink
+                          <a
                             href={waAskURL}
+                            target="_blank"
+                            rel="noopener noreferrer"
                             className="book-list-cta-icon"
                             aria-label="Ask about this book on WhatsApp"
                             title="Ask on WhatsApp"
                           >
                             <IconWhatsapp size={17} />
-                          </WhatsAppLink>
+                          </a>
                         </div>
                       </div>
                     </div>
