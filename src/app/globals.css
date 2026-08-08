@@ -303,7 +303,7 @@ a { color: inherit; }
 .book-gr-meta-label { width: 110px; flex-shrink: 0; color: var(--text-3); font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; font-size: 0.68rem; padding-top: 2px; }
 .book-gr-meta-value { color: var(--text); font-weight: 500; min-width: 0; overflow-wrap: anywhere; word-break: break-word; }
 
-.book-gr-actions { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; padding-top: 28px; border-top: 1px solid var(--border); }
+.book-gr-actions { display: flex; align-items: center; gap: 12px; flex-wrap: wrap; margin-bottom: 28px; padding-bottom: 28px; border-bottom: 1px solid var(--border); }
 .book-gr-actions .btn { padding: 14px 28px; }
 
 .book-gr-more { margin-top: 72px; padding-top: 40px; border-top: 1px solid var(--border); }

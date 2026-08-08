@@ -8,6 +8,13 @@ import Footer from "@/components/Footer";
 
 export const revalidate = 60;
 
+export const metadata = {
+  title: "All Books",
+  description: "Explore the complete collection of Malayalam novels, short story collections, and literary works by Siju Rajakkad.",
+  alternates: { canonical: "/books" },
+  openGraph: { title: "All Books | Siju Rajakkad", url: "/books" },
+};
+
 export default async function BooksListPage() {
   const authorData = await getAuthorData();
   const booksData = await getBooksData();
@@ -43,7 +50,7 @@ export default async function BooksListPage() {
                     <div key={book.id} className="book-list-item">
                       <Link href={`/books/${book.id}`} className="book-list-cover-link">
                         {outOfStock && <span className="book-list-badge out">Sold Out</span>}
-                        <img src={coverUrl} alt={book.titleEN} className="book-list-cover" />
+                        <img src={coverUrl} alt={book.titleEN || book.titleML || "Book cover"} className="book-list-cover" />
                       </Link>
 
                       <div className="book-list-body">

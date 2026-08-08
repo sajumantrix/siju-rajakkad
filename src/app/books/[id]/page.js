@@ -9,6 +9,38 @@ import BookImageGallery from "@/components/BookImageGallery";
 
 export const revalidate = 60;
 
+export async function generateMetadata({ params }) {
+  const { id } = await params;
+  const book = await getBookById(id);
+
+  if (!book) {
+    return { title: "Book Not Found" };
+  }
+
+  const title = book.titleEN ? `${book.titleML} (${book.titleEN})` : book.titleML;
+  const description =
+    book.description || `${book.titleML} by Siju Rajakkad${book.publisher ? `, published by ${book.publisher}` : ""}.`;
+  const coverUrl = typeof book.cover === "string" ? book.cover : (book.cover ? urlForImage(book.cover)?.url() : null);
+
+  return {
+    title,
+    description,
+    alternates: { canonical: `/books/${id}` },
+    openGraph: {
+      title,
+      description,
+      url: `/books/${id}`,
+      images: coverUrl ? [{ url: coverUrl }] : undefined,
+    },
+    twitter: {
+      card: "summary_large_image",
+      title,
+      description,
+      images: coverUrl ? [coverUrl] : undefined,
+    },
+  };
+}
+
 export default async function BookDetailPage({ params }) {
   const { id } = await params;
 
@@ -59,7 +91,7 @@ export default async function BookDetailPage({ params }) {
           <div className="book-gr-card">
             <BookImageGallery
               images={galleryImages}
-              alt={book.titleEN}
+              alt={book.titleEN || book.titleML || "Book cover"}
               stockLabel={outOfStock ? "Sold Out" : "In Stock"}
               outOfStock={outOfStock}
             />
@@ -77,19 +109,6 @@ export default async function BookDetailPage({ params }) {
                 </div>
               </div>
 
-              {book.description && <p className="book-gr-desc">{book.description}</p>}
-
-              {metaRows.length > 0 && (
-                <div className="book-gr-meta">
-                  {metaRows.map(({ label, value }) => (
-                    <div key={label} className="book-gr-meta-row">
-                      <span className="book-gr-meta-label">{label}</span>
-                      <span className="book-gr-meta-value">{value}</span>
-                    </div>
-                  ))}
-                </div>
-              )}
-
               <div className="book-gr-actions">
                 {outOfStock ? (
                   <a href={enquiryURL} target="_blank" rel="noopener noreferrer" className="btn btn-wa">
@@ -103,6 +122,19 @@ export default async function BookDetailPage({ params }) {
                   </a>
                 )}
               </div>
+
+              {book.description && <p className="book-gr-desc">{book.description}</p>}
+
+              {metaRows.length > 0 && (
+                <div className="book-gr-meta">
+                  {metaRows.map(({ label, value }) => (
+                    <div key={label} className="book-gr-meta-row">
+                      <span className="book-gr-meta-label">{label}</span>
+                      <span className="book-gr-meta-value">{value}</span>
+                    </div>
+                  ))}
+                </div>
+              )}
             </div>
           </div>
 
@@ -115,7 +147,7 @@ export default async function BookDetailPage({ params }) {
                   return (
                     <Link key={b.id} href={`/books/${b.id}`} className="book-gr-more-item">
                       <div className="book-gr-more-cover">
-                        <img src={bCoverUrl} alt={b.titleEN} />
+                        <img src={bCoverUrl} alt={b.titleEN || b.titleML || "Book cover"} />
                       </div>
                       <div className="book-gr-more-title">{b.titleML}</div>
                     </Link>

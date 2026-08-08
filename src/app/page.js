@@ -24,8 +24,24 @@ export default async function Home() {
     books: booksData 
   };
 
+  const personJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    name: data.author.name,
+    alternateName: data.author.nameML,
+    description: data.author.tagline,
+    image: data.author.portrait,
+    url: "https://sijurajakkad.com",
+    jobTitle: "Author",
+    sameAs: [data.author.facebook, data.author.instagram].filter(Boolean),
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
+      />
       <Navbar />
       <main>
         <Hero author={data.author} />

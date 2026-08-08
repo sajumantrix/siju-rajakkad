@@ -18,14 +18,16 @@ export default function Gallery({ gallery = [] }) {
           >
             <img
               src={item.src}
-              alt={item.caption}
+              alt={item.caption || "Photo from the literary journey of Siju Rajakkad"}
               width={item.width || 800}
               height={item.height || 600}
               loading="lazy"
             />
-            <div className="gallery-overlay">
-              <span>{item.caption}</span>
-            </div>
+            {item.caption && (
+              <div className="gallery-overlay">
+                <span>{item.caption}</span>
+              </div>
+            )}
           </div>
         ))}
       </div>
@@ -36,8 +38,8 @@ export default function Gallery({ gallery = [] }) {
             <button className="lightbox-close" onClick={() => setLightbox(null)}>
               <IconX size={18} />
             </button>
-            <img className="lightbox-img" src={lightbox.src} alt={lightbox.caption} />
-            <div className="lightbox-caption">{lightbox.caption}</div>
+            <img className="lightbox-img" src={lightbox.src} alt={lightbox.caption || "Photo from the literary journey of Siju Rajakkad"} />
+            {lightbox.caption && <div className="lightbox-caption">{lightbox.caption}</div>}
           </>
         )}
       </div>

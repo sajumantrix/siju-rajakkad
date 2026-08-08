@@ -4,8 +4,10 @@ import Gallery from "@/components/Gallery";
 import { getAuthorData, getGalleryData } from "@/lib/sanityQueries";
 
 export const metadata = {
-  title: "Gallery | Siju Rajakkad",
+  title: "Gallery",
   description: "Explore photos and moments from the literary journey of Siju Rajakkad.",
+  alternates: { canonical: "/gallery" },
+  openGraph: { title: "Gallery | Siju Rajakkad", url: "/gallery" },
 };
 
 export const revalidate = 60;
