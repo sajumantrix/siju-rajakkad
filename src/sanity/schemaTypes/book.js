@@ -58,6 +58,16 @@ export const bookType = defineType({
       description: 'Upload a high-quality image of the book cover. You can crop it after uploading!',
     }),
     defineField({
+      name: 'images',
+      title: 'Additional Images',
+      type: 'array',
+      of: [{ type: 'image', options: { hotspot: true } }],
+      options: {
+        layout: 'grid',
+      },
+      description: 'Extra photos of the book (back cover, sample pages, etc.) shown alongside the cover on its detail page. Click an uploaded image to preview, crop, or remove it; drag to reorder.',
+    }),
+    defineField({
       name: 'description',
       title: 'Description',
       type: 'text',

@@ -8,6 +8,8 @@ export const metadata = {
   description: "Explore photos and moments from the literary journey of Siju Rajakkad.",
 };
 
+export const revalidate = 60;
+
 export default async function GalleryPage() {
   const authorData = await getAuthorData();
   const galleryData = await getGalleryData();

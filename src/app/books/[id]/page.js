@@ -5,6 +5,9 @@ import { urlForImage } from "@/sanity/image";
 import { IconWhatsapp, IconChevronRight } from "@/components/Icons";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
+import BookImageGallery from "@/components/BookImageGallery";
+
+export const revalidate = 60;
 
 export default async function BookDetailPage({ params }) {
   const { id } = await params;
@@ -26,6 +29,10 @@ export default async function BookDetailPage({ params }) {
   const waURL = buildWhatsAppURL(author.whatsappNumber, book.titleML);
   const enquiryURL = buildWhatsAppEnquiryURL(author.whatsappNumber, book.titleML);
   const coverUrl = typeof book.cover === "string" ? book.cover : (book.cover ? urlForImage(book.cover)?.url() : "/images/placeholder.jpg");
+  const extraImageUrls = (book.images || [])
+    .map((img) => urlForImage(img)?.url())
+    .filter(Boolean);
+  const galleryImages = [coverUrl, ...extraImageUrls];
 
   const metaRows = [
     { label: "Publisher", value: book.publisher },
@@ -50,12 +57,12 @@ export default async function BookDetailPage({ params }) {
           </nav>
 
           <div className="book-gr-card">
-            <div className="book-gr-cover-wrap">
-              <span className={`book-gr-stock-pill ${outOfStock ? "out" : "in"}`}>
-                {outOfStock ? "Sold Out" : "In Stock"}
-              </span>
-              <img src={coverUrl} alt={book.titleEN} className="book-gr-cover" />
-            </div>
+            <BookImageGallery
+              images={galleryImages}
+              alt={book.titleEN}
+              stockLabel={outOfStock ? "Sold Out" : "In Stock"}
+              outOfStock={outOfStock}
+            />
 
             <div className="book-gr-info">
               <h1 className="book-gr-title">{book.titleML}</h1>

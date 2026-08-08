@@ -6,6 +6,8 @@ import { IconWhatsapp } from "@/components/Icons";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
 
+export const revalidate = 60;
+
 export default async function BooksListPage() {
   const authorData = await getAuthorData();
   const booksData = await getBooksData();

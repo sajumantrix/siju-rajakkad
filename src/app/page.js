@@ -11,6 +11,8 @@ import MediaCoverage from "@/components/MediaCoverage";
 import Contact from "@/components/Contact";
 import Footer from "@/components/Footer";
 
+export const revalidate = 60;
+
 export default async function Home() {
   const authorData = await getAuthorData();
   const booksData = await getBooksData();
