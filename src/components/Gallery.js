@@ -9,20 +9,21 @@ export default function Gallery({ gallery = [] }) {
   return (
     <section className="section section-alt" id="gallery">
       <div className="container">
-        <div className="section-header text-center">
-          <div className="section-label justify-center">Gallery</div>
-          <h2 className="section-title">Moments</h2>
-          <p className="section-sub mx-auto">From book launches, festivals, and literary events</p>
-        </div>
-        
         <div className="gallery-grid">
           {safeGallery.map((item, i) => (
             <div
               key={item.id}
               className={`gallery-cell animate-on-scroll stagger-${(i % 4) + 1}`}
+              style={item.width && item.height ? { aspectRatio: `${item.width} / ${item.height}` } : undefined}
               onClick={() => setLightbox(item)}
             >
-              <img src={item.src} alt={item.caption} />
+              <img
+                src={item.src}
+                alt={item.caption}
+                width={item.width || 800}
+                height={item.height || 600}
+                loading="lazy"
+              />
               <div className="gallery-overlay">
                 <span>{item.caption}</span>
               </div>

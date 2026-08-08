@@ -444,12 +444,17 @@ a { color: inherit; }
 }
 .gallery-tab.active { background: var(--text); color: #fff; border-color: var(--text); }
 .gallery-tab:hover:not(.active) { border-color: var(--text-2); color: var(--text); }
-.gallery-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px; }
-.gallery-cell {
-  border: 1px solid var(--border); overflow: hidden; position: relative;
-  aspect-ratio: 4/3; cursor: pointer;
+.gallery-grid {
+  column-count: 4; column-gap: 16px;
 }
-.gallery-cell img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.4s var(--ease); }
+@media (max-width: 1080px) { .gallery-grid { column-count: 3; } }
+@media (max-width: 720px) { .gallery-grid { column-count: 2; } }
+@media (max-width: 460px) { .gallery-grid { column-count: 1; } }
+.gallery-cell {
+  border: 1px solid var(--border); border-radius: 14px; overflow: hidden; position: relative;
+  cursor: pointer; break-inside: avoid; margin-bottom: 16px; display: block;
+}
+.gallery-cell img { width: 100%; height: auto; display: block; object-fit: cover; transition: transform 0.4s var(--ease); }
 .gallery-cell:hover img { transform: scale(1.06); }
 .gallery-overlay {
   position: absolute; inset: 0; background: linear-gradient(transparent 40%, rgba(0,0,0,0.65));

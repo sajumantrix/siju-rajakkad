@@ -43,7 +43,9 @@ export async function getBookById(id) {
 
 export async function getGalleryData() {
   try {
-    const gallery = await client.fetch(`*[_type == "gallery"] | order(_createdAt asc)`)
+    const gallery = await client.fetch(
+      `*[_type == "gallery"] | order(_createdAt asc){ ..., "dims": image.asset->metadata.dimensions }`
+    )
     if (gallery && gallery.length > 0) {
       return gallery
         .map(g => ({
@@ -51,6 +53,8 @@ export async function getGalleryData() {
           caption: g.caption,
           category: g.category,
           src: g.image ? urlForImage(g.image)?.url() : null,
+          width: g.dims?.width,
+          height: g.dims?.height,
         }))
         .filter(g => g.src)
     }

@@ -15,9 +15,9 @@ export default async function GalleryPage() {
   return (
     <>
       <Navbar />
-      <main className="section pt-24 md:pt-[120px] min-h-[80vh] bg-[#f8f7f5]">
+      <main className="pt-24 md:pt-[110px] pb-20 min-h-[80vh] bg-[#f8f7f5]">
         <div className="container">
-          <div className="section-header" style={{ marginBottom: "60px", textAlign: "center" }}>
+          <div className="section-header" style={{ marginBottom: "28px", textAlign: "center" }}>
             <h1 className="section-title">Photo Gallery</h1>
             <p className="section-sub" style={{ margin: "0 auto" }}>
               Moments, events, and memories from the literary journey.
