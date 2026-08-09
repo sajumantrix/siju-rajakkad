@@ -43,7 +43,7 @@ export default async function BooksListPage() {
               <div className="books-list-container">
                 {data.books.map((book) => {
                   const waAskURL = buildWhatsAppAskURL(data.author.whatsappNumber, book.titleML);
-                  const coverUrl = typeof book.cover === "string" ? book.cover : (book.cover ? urlForImage(book.cover)?.url() : "/images/placeholder.jpg");
+                  const coverUrl = typeof book.cover === "string" ? book.cover : (book.cover ? urlForImage(book.cover)?.url() : "/images/placeholder.svg");
                   const outOfStock = book.inStock === false;
 
                   return (

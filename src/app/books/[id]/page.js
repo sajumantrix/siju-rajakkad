@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { notFound } from "next/navigation";
 import { getBookById, getAuthorData, getBooksData } from "@/lib/sanityQueries";
 import { buildWhatsAppURL, buildWhatsAppEnquiryURL } from "@/lib/whatsapp";
 import { urlForImage } from "@/sanity/image";
@@ -49,18 +50,13 @@ export default async function BookDetailPage({ params }) {
   const allBooks = await getBooksData();
 
   if (!book) {
-    return (
-      <div style={{ minHeight: "100vh", display: "flex", flexDirection: "column", alignItems: "center", justifyContent: "center", gap: 16, fontFamily: "var(--font)" }}>
-        <p style={{ fontSize: "1.1rem", color: "var(--text-2)" }}>Book not found.</p>
-        <Link href="/books" className="btn btn-ghost">Back to Books</Link>
-      </div>
-    );
+    notFound();
   }
 
   const outOfStock = book.inStock === false;
   const waURL = buildWhatsAppURL(author.whatsappNumber, book.titleML);
   const enquiryURL = buildWhatsAppEnquiryURL(author.whatsappNumber, book.titleML);
-  const coverUrl = typeof book.cover === "string" ? book.cover : (book.cover ? urlForImage(book.cover)?.url() : "/images/placeholder.jpg");
+  const coverUrl = typeof book.cover === "string" ? book.cover : (book.cover ? urlForImage(book.cover)?.url() : "/images/placeholder.svg");
   const extraImageUrls = (book.images || [])
     .filter((img) => img?.asset)
     .map((img) => urlForImage(img)?.url())
@@ -144,7 +140,7 @@ export default async function BookDetailPage({ params }) {
               <h2>More Books by {author.name}</h2>
               <div className="book-gr-more-grid">
                 {moreBooks.map((b) => {
-                  const bCoverUrl = typeof b.cover === "string" ? b.cover : (b.cover ? urlForImage(b.cover)?.url() : "/images/placeholder.jpg");
+                  const bCoverUrl = typeof b.cover === "string" ? b.cover : (b.cover ? urlForImage(b.cover)?.url() : "/images/placeholder.svg");
                   return (
                     <Link key={b.id} href={`/books/${b.id}`} className="book-gr-more-item">
                       <div className="book-gr-more-cover">

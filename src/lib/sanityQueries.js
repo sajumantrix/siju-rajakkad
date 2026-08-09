@@ -8,9 +8,15 @@ export async function getAuthorData() {
   try {
     const author = await client.fetch(`*[_type == "author"][0]`)
     if (author) {
-      return { ...defaultData.author, ...author }
+      return {
+        ...defaultData.author,
+        ...author,
+        bioIntro: author.bioIntro || defaultData.bio.intro,
+        bioSections: author.bioSections?.length ? author.bioSections : defaultData.bio.sections,
+        testimonials: author.testimonials?.length ? author.testimonials : defaultData.testimonials,
+      }
     }
-    return defaultData.author
+    return { ...defaultData.author, bioIntro: defaultData.bio.intro, bioSections: defaultData.bio.sections, testimonials: defaultData.testimonials }
   } catch (error) {
     console.error("Error fetching author:", error)
     return defaultData.author

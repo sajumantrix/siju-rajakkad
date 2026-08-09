@@ -18,10 +18,12 @@ export default async function Home() {
   const booksData = await getBooksData();
   
   // Reconstruct the full data object with fallbacks for non-modeled Sanity schema sections
-  const data = { 
-    ...defaultData, 
-    author: authorData, 
-    books: booksData 
+  const data = {
+    ...defaultData,
+    author: authorData,
+    books: booksData,
+    bio: { intro: authorData.bioIntro, sections: authorData.bioSections },
+    testimonials: authorData.testimonials,
   };
 
   const personJsonLd = {
