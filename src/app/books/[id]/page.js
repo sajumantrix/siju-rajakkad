@@ -106,7 +106,7 @@ export default async function BookDetailPage({ params }) {
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(bookJsonLd) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(bookJsonLd).replace(/</g, "\\u003c") }}
       />
       <Navbar showAwards={author.showAwards !== false} />
       <main className="book-gr-wrap pt-[80px] md:pt-[108px]">
