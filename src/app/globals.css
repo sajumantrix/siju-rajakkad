@@ -362,7 +362,7 @@ a { color: inherit; }
   background: var(--accent); color: #fff; font-size: 0.68rem; font-weight: 700;
   letter-spacing: 0.04em; padding: 4px 9px; border-radius: 4px;
 }
-.book-list-badge.out { background: #111; }
+.book-list-badge.out { background: #dc2626; border-radius: 999px; }
 
 .book-list-body { padding: 16px 14px; display: flex; flex-direction: column; flex-grow: 1; }
 .book-list-header { margin-bottom: 4px; }
