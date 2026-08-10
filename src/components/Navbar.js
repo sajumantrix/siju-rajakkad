@@ -4,7 +4,7 @@ import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { IconMenu, IconX } from "./Icons";
 
-const NAV_ITEMS = [
+const ALL_NAV_ITEMS = [
   { label: "About", href: "/#about" },
   { label: "Books", href: "/books" },
   { label: "Awards", href: "/#awards" },
@@ -12,10 +12,13 @@ const NAV_ITEMS = [
   { label: "Contact", href: "/#contact" },
 ];
 
-export default function Navbar() {
+export default function Navbar({ showAwards = true }) {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const pathname = usePathname();
+  const NAV_ITEMS = showAwards
+    ? ALL_NAV_ITEMS
+    : ALL_NAV_ITEMS.filter((item) => item.label !== "Awards");
 
   const handleLogoClick = (e) => {
     if (pathname === "/") {

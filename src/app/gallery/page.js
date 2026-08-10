@@ -18,7 +18,7 @@ export default async function GalleryPage() {
 
   return (
     <>
-      <Navbar />
+      <Navbar showAwards={authorData.showAwards !== false} />
       <main className="page-main">
         <div className="container">
           <div className="section-header page-header">

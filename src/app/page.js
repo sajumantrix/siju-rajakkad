@@ -44,7 +44,7 @@ export default async function Home() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
       />
-      <Navbar />
+      <Navbar showAwards={data.author.showAwards !== false} />
       <main>
         <Hero author={data.author} />
         <About bio={data.bio} author={data.author} />

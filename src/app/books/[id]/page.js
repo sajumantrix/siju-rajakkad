@@ -19,8 +19,11 @@ export async function generateMetadata({ params }) {
   }
 
   const title = book.titleEN ? `${book.titleML} (${book.titleEN})` : book.titleML;
-  const description =
+  const rawDescription =
     book.description || `${book.titleML} by Siju Rajakkad${book.publisher ? `, published by ${book.publisher}` : ""}.`;
+  const flatDescription = rawDescription.replace(/\s+/g, " ").trim();
+  const description =
+    flatDescription.length > 160 ? `${flatDescription.slice(0, 157).trim()}...` : flatDescription;
   const coverUrl = typeof book.cover === "string" ? book.cover : (book.cover ? urlForImage(book.cover)?.url() : null);
 
   return {
@@ -72,9 +75,40 @@ export default async function BookDetailPage({ params }) {
 
   const moreBooks = allBooks.filter((b) => b.id !== book.id).slice(0, 6);
 
+  const bookJsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Book",
+    name: book.titleEN ? `${book.titleML} (${book.titleEN})` : book.titleML,
+    author: { "@type": "Person", name: "Siju Rajakkad" },
+    inLanguage: book.language || "Malayalam",
+    ...(book.publisher && { publisher: { "@type": "Organization", name: book.publisher } }),
+    ...(book.year && { datePublished: String(book.year) }),
+    ...(book.description && { description: book.description }),
+    ...(coverUrl && { image: coverUrl }),
+    ...(book.price && (() => {
+      const numericPrice = book.price.replace(/[^0-9.]/g, "");
+      return numericPrice
+        ? {
+            offers: {
+              "@type": "Offer",
+              price: numericPrice,
+              priceCurrency: "INR",
+              availability: outOfStock
+                ? "https://schema.org/OutOfStock"
+                : "https://schema.org/InStock",
+            },
+          }
+        : {};
+    })()),
+  };
+
   return (
     <>
-      <Navbar />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(bookJsonLd) }}
+      />
+      <Navbar showAwards={author.showAwards !== false} />
       <main className="book-gr-wrap pt-[80px] md:pt-[108px]">
         <div className="container">
           <nav className="book-gr-crumb">

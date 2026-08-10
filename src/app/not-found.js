@@ -13,7 +13,7 @@ export default async function NotFound() {
 
   return (
     <>
-      <Navbar />
+      <Navbar showAwards={author.showAwards !== false} />
       <section
         className="section"
         style={{

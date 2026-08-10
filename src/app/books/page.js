@@ -22,7 +22,7 @@ export default async function BooksListPage() {
 
   return (
     <>
-      <Navbar />
+      <Navbar showAwards={data.author.showAwards !== false} />
       <main className="page-main">
         <div className="container">
           <div className="section-header page-header">
