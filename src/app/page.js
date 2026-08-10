@@ -33,7 +33,7 @@ export default async function Home() {
     alternateName: data.author.nameML,
     description: data.author.tagline,
     image: data.author.portrait,
-    url: "https://sijurajakkad.com",
+    url: "https://www.sijurajakkad.com",
     jobTitle: "Author",
     sameAs: [data.author.facebook, data.author.instagram].filter(Boolean),
   };

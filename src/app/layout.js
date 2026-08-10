@@ -48,7 +48,7 @@ export const metadata = {
       "max-snippet": -1,
     },
   },
-  metadataBase: new URL("https://sijurajakkad.com"),
+  metadataBase: new URL("https://www.sijurajakkad.com"),
 };
 
 export default function RootLayout({ children }) {

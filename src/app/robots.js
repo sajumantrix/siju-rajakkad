@@ -7,6 +7,6 @@ export default function robots() {
         disallow: ["/studio"],
       },
     ],
-    sitemap: "https://sijurajakkad.com/sitemap.xml",
+    sitemap: "https://www.sijurajakkad.com/sitemap.xml",
   };
 }
