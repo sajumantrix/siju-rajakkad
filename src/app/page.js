@@ -62,10 +62,10 @@ export default async function Home() {
           </div>
         </section>
 
-        <Awards awards={data.awards} />
-        <AuthorQuote author={data.author} />
-        <Testimonials testimonials={data.testimonials} />
-        <MediaCoverage media={data.media} />
+        {data.author.showAwards !== false && <Awards awards={data.awards} />}
+        {data.author.showQuote !== false && <AuthorQuote author={data.author} />}
+        {data.author.showTestimonials !== false && <Testimonials testimonials={data.testimonials} />}
+        {data.author.showMedia !== false && <MediaCoverage media={data.media} />}
         <Contact author={data.author} />
       </main>
       <Footer author={data.author} />
